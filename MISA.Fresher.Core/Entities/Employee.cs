@@ -1,132 +1,152 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MISA.Fresher.Core.MISAAttribute.MISAAttribute;
+using static MISA.Fresher.Core.Attributes.MISAAttribute;
+using static MISA.Fresher.Core.Enums.MISAEnum;
 
 namespace MISA.Fresher.Core.Entities
 {
-    public class Employee
+    public class Employee : BaseEntity
     {
         /// <summary>
         /// Khoá chính của nhân viên
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
+        [NotUpdated]
         public Guid EmployeeId { get; set; }
+
         /// <summary>
         /// Mã nhân viên
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         [NotEmpty]
         [Unique]
         [PropertyName("Mã nhân viên")]
+        [ExcelColumnName("Mã nhân viên")]
         public string EmployeeCode { get; set; }
+
         /// <summary>
         /// Tên nhân viên
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         [NotEmpty]
         [PropertyName("Tên nhân viên")]
+        [ExcelColumnName("Tên nhân viên")]
         public string EmployeeName { get; set; }
+
         /// <summary>
         /// Giới tính
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
-        public int? Gender { get; set; }
+        /// CreateBy: TTKien(21/10/2021)
+        public Gender Gender { get; set; }
+
+        /// <summary>
+        /// Lấy ra tên giới tính (Nam/ Nữ/ Khác)
+        /// </summary>
+        /// CreateBy: TTKien(22/10/2021)
+        [ReadOnly]
+        [ExcelColumnName("Giới tính")]
+        public string GenderName
+        {
+            get
+            {
+                var resourceText = GetEnumTextByEnumName<Gender>(Gender);
+                return resourceText;
+            }
+        }
+
         /// <summary>
         /// Ngày sinh
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
+        [ExcelColumnName("Ngày sinh")]
         public DateTime? DateOfBirth { get; set; }
+
         /// <summary>
         /// Số điện thoại
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         public string PhoneNumber { get; set; }
+
         /// <summary>
         /// Số điện thoại cố định
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         public string TelephoneNumber { get; set; }
+
         /// <summary>
         /// Email
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         public string Email { get; set; }
+
         /// <summary>
         /// Địa chỉ
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         public string Address { get; set; }
-        /// <summary>
-        /// Khoá ngoại phòng ban
-        /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        [NotEmpty]
-        [PropertyName("Phòng ban")]
-        public Guid DepartmentId { get; set; }
+
         /// <summary>
         /// Tên chức vụ
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
+        [ExcelColumnName("Chức danh")]
         public string PositionName { get; set; }
+
         /// <summary>
-        /// Số CMND
-        /// CreateBy: TTKien(21/10/2021)
+        /// Khoá ngoại phòng ban
         /// </summary>
-        public string IdentityNumber { get; set; }
-        /// <summary>
-        /// Nơi cấp CMND
         /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        public string IdentityPlace { get; set; }
-        /// <summary>
-        /// Ngày tạo CMND
-        /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        public DateTime? IdentityDate { get; set; }
-        /// <summary>
-        /// Số tài khoản ngân hàng
-        /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        public string BankAccount { get; set; }
-        /// <summary>
-        /// Tên ngân hàng
-        /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        public string BankName { get; set; }
-        /// <summary>
-        /// Chi nhánh ngân hàng
-        /// CreateBy: TTKien(21/10/2021)
-        /// </summary>
-        public string BankBranch { get; set; }
+        [NotEmpty]
+        public Guid DepartmentId { get; set; }
+
         /// <summary>
         /// Mã phòng ban lấy từ bảng phòng ban
-        /// CreateBy: TTKien(21/10/2021)
         /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
         [ReadOnly]
+        [ExcelColumnName("Tên đơn vị")]
         public string DepartmentName { get; }
+
         /// <summary>
-        /// Ngày tạo khi thêm mới nhân viên
-        /// CreateBy: TTKien(21/10/2021)
+        /// Số CMND
         /// </summary>
-        public DateTime CreatedDate { get; set; }
+        /// CreateBy: TTKien(21/10/2021)
+        [PropertyName("Số CMND")]
+        public string IdentityNumber { get; set; }
+
         /// <summary>
-        /// Tên người thêm mới nhân viên
-        /// CreateBy: TTKien(21/10/2021)
+        /// Nơi cấp CMND
         /// </summary>
-        public string CreatedBy { get; set; }
+        /// CreateBy: TTKien(21/10/2021)
+        public string IdentityPlace { get; set; }
+
         /// <summary>
-        /// Ngày sửa đổi khi cập nhật nhân viên
-        /// CreateBy: TTKien(21/10/2021)
+        /// Ngày tạo CMND
         /// </summary>
-        public DateTime? ModifiedDate { get; set; }
+        /// CreateBy: TTKien(21/10/2021)
+        public DateTime? IdentityDate { get; set; }
+
         /// <summary>
-        /// Tên người cập nhật thông tin nhân viên
-        /// CreateBy: TTKien(21/10/2021)
+        /// Số tài khoản ngân hàng
         /// </summary>
-        public string ModifiedBy { get; set; }
-       
+        /// CreateBy: TTKien(21/10/2021)
+        [ExcelColumnName("Số tài khoản")]
+        public string BankAccount { get; set; }
+
+        /// <summary>
+        /// Tên ngân hàng
+        /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
+        [ExcelColumnName("Tên ngân hàng")]
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// Chi nhánh ngân hàng
+        /// </summary>
+        /// CreateBy: TTKien(21/10/2021)
+        public string BankBranch { get; set; }
     }
 }

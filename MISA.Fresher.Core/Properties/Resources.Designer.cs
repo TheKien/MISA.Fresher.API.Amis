@@ -61,38 +61,182 @@ namespace MISA.Fresher.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Female.
-        /// </summary>
-        public static string ENEnum_Gender_Female {
-            get {
-                return ResourceManager.GetString("ENEnum_Gender_Female", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Male.
-        /// </summary>
-        public static string ENEnum_Gender_Male {
-            get {
-                return ResourceManager.GetString("ENEnum_Gender_Male", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nữ.
         /// </summary>
-        public static string VNEnum_Gender_Female {
+        public static string Enum_Gender_Female {
             get {
-                return ResourceManager.GetString("VNEnum_Gender_Female", resourceCulture);
+                return ResourceManager.GetString("Enum_Gender_Female", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Nam.
         /// </summary>
-        public static string VNEnum_Gender_Male {
+        public static string Enum_Gender_Male {
             get {
-                return ResourceManager.GetString("VNEnum_Gender_Male", resourceCulture);
+                return ResourceManager.GetString("Enum_Gender_Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khác.
+        /// </summary>
+        public static string Enum_Gender_Other {
+            get {
+                return ResourceManager.GetString("Enum_Gender_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STT.
+        /// </summary>
+        public static string Excel_Index_Number {
+            get {
+                return ResourceManager.GetString("Excel_Index_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày sinh.
+        /// </summary>
+        public static string ExcelName_DateOfBirth {
+            get {
+                return ResourceManager.GetString("ExcelName_DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày sinh phải nhỏ hơn ngày hiện tại.
+        /// </summary>
+        public static string Exception_Msg_DateOfBirth {
+            get {
+                return ResourceManager.GetString("Exception_Msg_DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email &lt;{0}&gt; sai định dạng.
+        /// </summary>
+        public static string Exception_Msg_Email {
+            get {
+                return ResourceManager.GetString("Exception_Msg_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dữ liệu không hợp lệ.
+        /// </summary>
+        public static string Exception_Msg_InValid {
+            get {
+                return ResourceManager.GetString("Exception_Msg_InValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông tin {0} không được bỏ trống.
+        /// </summary>
+        public static string Exception_Msg_NotEmpty {
+            get {
+                return ResourceManager.GetString("Exception_Msg_NotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại &lt;{0}&gt; sai địng dạng.
+        /// </summary>
+        public static string Exception_Msg_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Exception_Msg_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} &lt;{1}&gt; đã tồn tại trong hệ thống.
+        /// </summary>
+        public static string Exception_Msg_Unique {
+            get {
+                return ResourceManager.GetString("Exception_Msg_Unique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đã có lỗi xảy ra. Xin vui lòng liên hệ MISA để được tư vấn..
+        /// </summary>
+        public static string Exception_User_Msg_Error {
+            get {
+                return ResourceManager.GetString("Exception_User_Msg_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đối tượng không được tìm thấy!.
+        /// </summary>
+        public static string Exceptione_Msg_IsExistEntity {
+            get {
+                return ResourceManager.GetString("Exceptione_Msg_IsExistEntity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không thể xoá bản ghi này. Bản ghi hiện tại đang có bản ghi khác tham chiếu tới.
+        /// </summary>
+        public static string Exeptione_Msg_Delete_Exist_Child {
+            get {
+                return ResourceManager.GetString("Exeptione_Msg_Delete_Exist_Child", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arial.
+        /// </summary>
+        public static string Font_Name_Arial {
+            get {
+                return ResourceManager.GetString("Font_Name_Arial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time New Roman.
+        /// </summary>
+        public static string Font_Name_TimeNewRoman {
+            get {
+                return ResourceManager.GetString("Font_Name_TimeNewRoman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yêu cầu thành công.
+        /// </summary>
+        public static string HttpCode_200 {
+            get {
+                return ResourceManager.GetString("HttpCode_200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tạo mới bản ghi thành công.
+        /// </summary>
+        public static string HttpCode_201 {
+            get {
+                return ResourceManager.GetString("HttpCode_201", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không nội dung cho yêu cầu này.
+        /// </summary>
+        public static string HttpCode_204 {
+            get {
+                return ResourceManager.GetString("HttpCode_204", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DANH SÁCH NHÂN VIÊN.
+        /// </summary>
+        public static string Title_Excel_Employee {
+            get {
+                return ResourceManager.GetString("Title_Excel_Employee", resourceCulture);
             }
         }
     }

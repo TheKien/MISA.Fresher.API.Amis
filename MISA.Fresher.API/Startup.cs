@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MISA.Fresher.Core.Exceptions;
 using MISA.Fresher.Core.Interfaces.Infrastructure;
 using MISA.Fresher.Core.Interfaces.Service;
 using MISA.Fresher.Core.Services;
@@ -31,12 +32,19 @@ namespace MISA.Fresher.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                // add the action filter to the filters collection:
+                options.Filters.Add<MISAResponseException>();
+            });
 
+            services.AddControllers().AddJsonOptions(jsonOptions =>
+            {
+                jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
             // Config DI
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient(typeof(IBaseService<>), typeof(BaseService<>));
-
             services.AddTransient(typeof(IEmployeeRepository), typeof(EmployeeRepository));
             services.AddTransient(typeof(IEmployeeService), typeof(EmployeeService));
             services.AddTransient(typeof(IDepartmentRepository), typeof(DepartmentRepository));
@@ -59,7 +67,10 @@ namespace MISA.Fresher.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.Fresher.API v1"));
             }
-
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
